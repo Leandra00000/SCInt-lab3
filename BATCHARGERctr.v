@@ -161,6 +161,8 @@ module BATCHARGERctr (
                 if ((tempmin <= tbat) && (tbat <= tempmax)) begin
                     if (vbat > vcutoff) begin
                         next_state <= ccmode; // Exit to constant current mode
+                    end else begin
+                        next_state <= tcmode;
                     end
                 end else begin
                     next_state <= wait1;
@@ -171,6 +173,8 @@ module BATCHARGERctr (
                 if ((tempmin <= tbat) && (tbat <= tempmax)) begin
                     if (vbat > vpreset) begin
                         next_state <= cvmode; // Exit to constant voltage mode
+                    end else begin
+                        next_state <= ccmode;
                     end
                 end else begin
                     next_state <= wait1;
@@ -184,7 +188,9 @@ module BATCHARGERctr (
                     end else begin
                         if ((tmax * 255)<=charge_timer) begin
                             next_state <= end1;
-                        end 
+                        end else begin
+                            next_state <= cvmode;
+                        end
                     end
                 end else begin
                     next_state <= wait1;
@@ -199,7 +205,9 @@ module BATCHARGERctr (
                         end else begin
                             if (vbat < vpreset) begin
                                 next_state <= ccmode; // Exit to constant voltage mode
-                            end 
+                            end else begin
+                                next_state <= end1;
+                            end
                         end
                     end else begin
                         next_state <= end1;
