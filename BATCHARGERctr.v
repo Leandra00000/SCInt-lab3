@@ -50,33 +50,82 @@ module BATCHARGERctr (
             vmonen_reg <= 1'b1;
             tmonen_reg <= 1'b1;
         end else begin
-            if(vtok && en && !dgnd && dvdd) begin
+            if(vtok && en && !dgnd && dvdd) begin   
                 if (state == cvmode) begin
                     charge_timer <= charge_timer + 16'd1; 
                 end else begin
                     charge_timer <= 16'd0; 
                 end
                 
-                if((tempmin <= tbat) && (tbat <= tempmax)) begin
-                    state <= next_state; 
-                end else begin
-                    state <= start; 
-                end
+                state <= next_state; 
+                    
+                case (next_state)
+                    start: begin
+                        cc_reg <= 1'b0;
+                        tc_reg <= 1'b0;
+                        cv_reg <= 1'b0;
+                        tmonen_reg <= 1'b1;
+                        imonen_reg <=1'b0;
+                        vmonen_reg <= 1'b1;
+                    end
+                    wait1: begin
+                        cc_reg <= 1'b0;
+                        tc_reg <= 1'b0;
+                        cv_reg <= 1'b0;
+                        tmonen_reg <= 1'b1;
+                        imonen_reg <=1'b0;
+                        vmonen_reg <= 1'b1;
+                    end
+                    tcmode: begin
+                        tc_reg <= 1'b1;
+                        cc_reg <= 1'b0;
+                        cv_reg <= 1'b0;
+                        imonen_reg <= 1'b0;
+                        vmonen_reg <= 1'b1;
+                        tmonen_reg <= 1'b1;
+                    end
+                    ccmode: begin
+                        tc_reg <= 1'b0;
+                        cc_reg <= 1'b1;
+                        cv_reg <= 1'b0;
+                        imonen_reg <= 1'b0;
+                        vmonen_reg <= 1'b1;
+                        tmonen_reg <= 1'b1;
+                    end
+                    cvmode: begin
+                        tc_reg <= 1'b0;
+                        cc_reg <= 1'b0;
+                        cv_reg <= 1'b1;
+                        imonen_reg <= 1'b1;
+                        vmonen_reg <= 1'b0;
+                        tmonen_reg <= 1'b1;
+                    end
+                    end1: begin
+                        tc_reg <= 1'b0;
+                        cc_reg <= 1'b0;
+                        cv_reg <= 1'b0;
+                        imonen_reg <= 1'b0;
+                        vmonen_reg <= 1'b1;
+                        tmonen_reg <= 1'b0;
+                    end
+                    default: begin
+                        tc_reg <= 1'b0;
+                        cc_reg <= 1'b0;
+                        cv_reg <= 1'b0;
+                        imonen_reg <= 1'b0;
+                        vmonen_reg <= 1'b1;
+                        tmonen_reg <= 1'b1;
+                    end
+                endcase
             end
         end
     end
             
             
             
-    always @ (state or vtok or vbat or charge_timer or ibat) begin
+    always @ (*) begin
         case (state)
             start: begin
-                cc_reg <= 1'b0;
-                tc_reg <= 1'b0;
-                cv_reg <= 1'b0;
-                tmonen_reg <= 1'b1;
-                imonen_reg <=1'b0;
-                vmonen_reg <= 1'b1;
                 if ((tempmin <= tbat) && (tbat <= tempmax)) begin
                     if (vbat < 8'd214) begin
                         if (vbat < vcutoff) begin
@@ -109,51 +158,28 @@ module BATCHARGERctr (
             end
 
             tcmode: begin
-                tmonen_reg <= 1'b1;
-                imonen_reg <=1'b0;
-                vmonen_reg <= 1'b1;
-                tc_reg <= 1'b1;
-                cc_reg <= 1'b0;
-                cv_reg <= 1'b0;
                 if (vbat > vcutoff) begin
                     next_state <= ccmode; // Exit to constant current mode
                 end
             end
 
             ccmode: begin
-                tmonen_reg <= 1'b1;
-                imonen_reg <=1'b0;
-                vmonen_reg <= 1'b1;
-                tc_reg <= 1'b0;
-                cc_reg <= 1'b1;
-                cv_reg <= 1'b0;
                 if (vbat > vpreset) begin
                     next_state <= cvmode; // Exit to constant voltage mode
                 end
             end
 
             cvmode: begin
-                tmonen_reg <= 1'b1;
-                imonen_reg <=1'b1;
-                vmonen_reg <= 1'b0;
-                tc_reg <= 1'b0;
-                cc_reg <= 1'b0;
-                cv_reg <= 1'b1;
                 if (ibat <= iend) begin
                     next_state <= end1; // End charging
+                end else begin
+                    if ((tmax * 255)<=charge_timer) begin
+                        next_state <= end1;
+                    end 
                 end
-                if ((tmax * 255)<=charge_timer) begin
-                    next_state <= end1;
-                end 
             end
 
             end1: begin
-                tmonen_reg <= 1'b0;
-                tc_reg <= 1'b0;
-                cc_reg <= 1'b0;
-                cv_reg <= 1'b0;
-                imonen_reg <=1'b0;
-                vmonen_reg <= 1'b1;
                 if ((tempmin <= tbat) && (tbat <= tempmax)) begin
                     if (vbat < 8'd214) begin
                         if (vbat < vcutoff) begin
