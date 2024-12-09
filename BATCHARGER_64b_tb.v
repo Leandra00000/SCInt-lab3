@@ -80,7 +80,7 @@ initial
      
      $display("SUCCESS!");
      
-     #10000000;     
+     #30000000;     
      #10000000 $finish;
      
   end
