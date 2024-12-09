@@ -76,11 +76,23 @@ initial
      $display("cv mode is correct");
      
      #8732500
+     $display("Battery finishing charging...");
+     if (ibat!=64'h00000000_00000000) begin
+        $display("Incorrect current in the end : %d",ibat);
+        $finish();
+     end
      
+     
+     vbat_prev=vbat;
+     #10
+     if (vbat_prev!=vbat) begin
+        $display("Incorrect voltage at the end");
+        $finish();
+     end
      
      $display("SUCCESS!");
      
-     #30000000;     
+     #10000000;     
      #10000000 $finish;
      
   end
