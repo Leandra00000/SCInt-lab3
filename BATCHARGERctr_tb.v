@@ -22,6 +22,9 @@ module BATCHARGERctr_tb;
    reg [7:0] iend; // charge current to be used as "end charging" end criteria
    reg 	     clk; // state machine clock
    reg       en;
+   wire si;
+   wire se;
+   wire so;
    reg 	     rstz; // system reset
    reg 	     vtok; // singals that voltage and temperature values are valid
    wire      dvdd;  // digital supply
@@ -54,10 +57,13 @@ BATCHARGERctr uut(
 		     .tempmax(tempmax), 
 		     .tmax(tmax), 
 		     .iend(iend), 
-		     .clk(clk), 
+		     .clk(clk),
+~		     .si(si),
+                     .se(se),
+                     .so(so), 
 		     .rstz(rstz),
 		     .en(en),
-                     .dvdd(dvdd),
+		     .dvdd(dvdd),
                      .dgnd(dgnd)		     
 		     );
 
