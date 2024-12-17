@@ -1,0 +1,513 @@
+VERSION 5.7 ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+
+MACRO BATCHARGERctr
+  CLASS BLOCK ;
+  ORIGIN -19.6 -7 ;
+  FOREIGN BATCHARGERctr 19.6 7 ;
+  SIZE 81.7 BY 40.8 ;
+  SYMMETRY X Y R90 ;
+  PIN dvdd
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 45.9 19.8 46.1 ;
+    END
+  END dvdd
+  PIN dgnd
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 45.1 19.8 45.3 ;
+    END
+  END dgnd
+  PIN clk
+    DIRECTION INPUT ;
+    USE CLOCK ;
+    PORT
+      LAYER ME2 ;
+        RECT 21.1 7 21.3 7.2 ;
+    END
+  END clk
+  PIN iend
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 19.9 19.8 20.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 19.5 19.8 19.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 19.1 19.8 19.3 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 18.7 19.8 18.9 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 18.3 19.8 18.5 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 17.9 19.8 18.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 17.5 19.8 17.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 17.1 19.8 17.3 ;
+    END
+  END iend
+  PIN vcutoff
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 39.9 19.8 40.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 39.5 19.8 39.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 39.1 19.8 39.3 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 38.7 19.8 38.9 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 38.3 19.8 38.5 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 37.9 19.8 38.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 37.5 19.8 37.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 37.1 19.8 37.3 ;
+    END
+  END vcutoff
+  PIN vpreset
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 35.9 19.8 36.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 35.5 19.8 35.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 35.1 19.8 35.3 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 34.7 19.8 34.9 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 34.3 19.8 34.5 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 33.9 19.8 34.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 33.5 19.8 33.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 33.1 19.8 33.3 ;
+    END
+  END vpreset
+  PIN tmax
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 23.9 19.8 24.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 23.5 19.8 23.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 23.1 19.8 23.3 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 22.7 19.8 22.9 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 22.3 19.8 22.5 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 21.9 19.8 22.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 21.5 19.8 21.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 21.1 19.8 21.3 ;
+    END
+  END tmax
+  PIN tempmax
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 27.9 19.8 28.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 27.5 19.8 27.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 27.1 19.8 27.3 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 26.7 19.8 26.9 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 26.3 19.8 26.5 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 25.9 19.8 26.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 25.5 19.8 25.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 25.1 19.8 25.3 ;
+    END
+  END tempmax
+  PIN tempmin
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 31.9 19.8 32.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 31.5 19.8 31.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 31.1 19.8 31.3 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 30.7 19.8 30.9 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 30.3 19.8 30.5 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 29.9 19.8 30.1 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 29.5 19.8 29.7 ;
+    END
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 29.1 19.8 29.3 ;
+    END
+  END tempmin
+  PIN vbat
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 39.9 7 40.1 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 40.3 7 40.5 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 40.7 7 40.9 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 41.1 7 41.3 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 41.5 7 41.7 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 41.9 7 42.1 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 42.3 7 42.5 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 42.7 7 42.9 7.2 ;
+    END
+  END vbat
+  PIN vmonem
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 51.9 7 52.1 7.2 ;
+    END
+  END vmonem
+  PIN en
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 23.5 7 23.7 7.2 ;
+    END
+  END en
+  PIN rstz
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 21.9 7 22.1 7.2 ;
+    END
+  END rstz
+  PIN vtok[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.6 15.9 19.8 16.1 ;
+    END
+  END vtok[0]
+  PIN ibat
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 43.9 7 44.1 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 44.3 7 44.5 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 44.7 7 44.9 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 45.1 7 45.3 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 45.5 7 45.7 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 45.9 7 46.1 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 46.3 7 46.5 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 46.7 7 46.9 7.2 ;
+    END
+  END ibat
+  PIN tbat
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 47.9 7 48.1 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 48.3 7 48.5 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 48.7 7 48.9 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 49.1 7 49.3 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 49.5 7 49.7 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 49.9 7 50.1 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 50.3 7 50.5 7.2 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 50.7 7 50.9 7.2 ;
+    END
+  END tbat
+  PIN cc
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 101.1 11.9 101.3 12.1 ;
+    END
+  END cc
+  PIN tc
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 101.1 10.3 101.3 10.5 ;
+    END
+  END tc
+  PIN cv
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 101.1 11.1 101.3 11.3 ;
+    END
+  END cv
+  PIN imonem
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 53.1 7 53.3 7.2 ;
+    END
+  END imonem
+  PIN tmonem
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 54.3 7 54.5 7.2 ;
+    END
+  END tmonem
+  PIN SE
+    DIRECTION INPUT ;
+    PORT
+      LAYER ME2 ;
+        RECT 31.9 47.6 32.1 47.8 ;
+    END
+  END SE
+  PIN SI
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 32.7 47.6 32.9 47.8 ;
+    END
+  END SI
+  PIN SO
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME2 ;
+        RECT 33.5 47.6 33.7 47.8 ;
+    END
+  END SO
+  OBS
+    LAYER ME1 SPACING 0.16 ;
+      RECT 19.6 7 101.3 47.8 ;
+    LAYER ME2 SPACING 0.2 ;
+      RECT 34.06 7.56 101.3 47.8 ;
+      RECT 54.86 7 101.3 47.8 ;
+      RECT 19.6 7.56 31.54 47.8 ;
+      RECT 24.06 7 39.54 47.24 ;
+      RECT 53.66 7 53.94 47.8 ;
+      RECT 52.46 7 52.74 47.8 ;
+      RECT 51.26 7 51.54 47.8 ;
+      RECT 47.26 7 47.54 47.8 ;
+      RECT 43.26 7 43.54 47.8 ;
+      RECT 22.46 7 23.14 47.8 ;
+      RECT 19.6 7 20.74 47.8 ;
+    LAYER ME3 SPACING 0.2 ;
+      RECT 34 12.46 101.3 47.8 ;
+      RECT 19.6 46.46 31.6 47.8 ;
+      RECT 24 7 39.6 47.3 ;
+      RECT 20.16 12.46 101.3 47.3 ;
+      RECT 19.6 40.46 101.3 44.74 ;
+      RECT 19.6 36.46 101.3 36.74 ;
+      RECT 19.6 32.46 101.3 32.74 ;
+      RECT 19.6 28.46 101.3 28.74 ;
+      RECT 19.6 24.46 101.3 24.74 ;
+      RECT 19.6 20.46 101.3 20.74 ;
+      RECT 19.6 16.46 101.3 16.74 ;
+      RECT 19.6 7 20.8 15.54 ;
+      RECT 19.6 7.5 100.74 15.54 ;
+      RECT 54.8 7 101.3 9.94 ;
+      RECT 53.6 7 54 47.8 ;
+      RECT 52.4 7 52.8 47.8 ;
+      RECT 51.2 7 51.6 47.8 ;
+      RECT 47.2 7 47.6 47.8 ;
+      RECT 43.2 7 43.6 47.8 ;
+      RECT 22.4 7 23.2 47.8 ;
+    LAYER ME4 SPACING 0.2 ;
+      RECT 19.6 46.4 101.3 47.8 ;
+      RECT 20.1 12.4 101.3 47.8 ;
+      RECT 19.6 40.4 101.3 44.8 ;
+      RECT 19.6 36.4 101.3 36.8 ;
+      RECT 19.6 32.4 101.3 32.8 ;
+      RECT 19.6 28.4 101.3 28.8 ;
+      RECT 19.6 24.4 101.3 24.8 ;
+      RECT 19.6 20.4 101.3 20.8 ;
+      RECT 19.6 16.4 101.3 16.8 ;
+      RECT 19.6 7 100.8 15.6 ;
+      RECT 19.6 7 101.3 10 ;
+    LAYER ME5 SPACING 0.2 ;
+      RECT 19.6 7 101.3 47.8 ;
+    LAYER ME6 SPACING 0.2 ;
+      RECT 19.6 7 101.3 47.8 ;
+    LAYER ME7 SPACING 0.4 ;
+      RECT 19.6 7 101.3 47.8 ;
+    LAYER ME8 SPACING 1.5 ;
+      RECT 19.6 7 101.3 47.8 ;
+  END
+END BATCHARGERctr
+
+END LIBRARY
