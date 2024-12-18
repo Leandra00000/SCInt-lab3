@@ -58,7 +58,7 @@ BATCHARGERctr uut(
 		     .tmax(tmax), 
 		     .iend(iend), 
 		     .clk(clk),
-~		     .si(si),
+		     .si(si),
                      .se(se),
                      .so(so), 
 		     .rstz(rstz),
